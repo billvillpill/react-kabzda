@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from 'react';
 
 type StarPropsType = {
     selected: boolean
@@ -12,73 +12,43 @@ function Star(props: StarPropsType) {
 
 }
 
-type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
-}
+export function Rating() {
+    let [stateRating, setStateRating] = useState(0)
+    const onClickRating1 = () => {
+        setStateRating(1)
+    }
+    const onClickRating2 = () => {
+        setStateRating(2)
+    }
+    const onClickRating3 = () => {
+        setStateRating(3)
+    }
+    const onClickRating4 = () => {
+        setStateRating(4)
+    }
+    const onClickRating5 = () => {
+        setStateRating(5)
+    }
 
-export function Rating(props: RatingPropsType) {
-    if (props.value === 1) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 2) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 3) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 4) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 5) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-            </div>
-        );
-    }
+
     return (
-        <div>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
+        <div className='rating'>
+            <div>
+                <Star selected={ stateRating > 0 }/>
+                <Star selected={ stateRating > 1 }/>
+                <Star selected={ stateRating > 2 }/>
+                <Star selected={ stateRating > 3 } />
+                <Star selected={ stateRating > 4 }/>
+            </div>
+            <div>
+                <button type='submit' onClick={onClickRating1}>1</button>
+                <button type='submit' onClick={onClickRating2}>2</button>
+                <button type='submit' onClick={onClickRating3}>3</button>
+                <button type='submit' onClick={onClickRating4}>4</button>
+                <button type='submit' onClick={onClickRating5}>5</button>
+            </div>
         </div>
-    );
+
+    )
+
 }

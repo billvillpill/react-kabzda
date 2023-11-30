@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.conteiner {
+  margin: 30px 30px;
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +40,59 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.switch button {
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  border-radius: 100%;
+  margin: 10px 10px;
+}
+.rating button {
+  margin-right: 7px;
+}
+
+
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -3px;
+  left: -3px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid black;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -3px;
+  left: -3px;
+  position: relative;
+  background-color: rgb(255, 165, 0);
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid black;
+}
+
+.greenButton {
+  background-color: #8fff00;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.redButton {
+  background-color: #ff0000;
+  font-weight: bold;
+  border: 2px solid black;
+}
+.whiteButton {
+  background-color: #ffffff;
 }
