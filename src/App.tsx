@@ -1,20 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
-import {Onoff} from './components/OnOff/Onoff'; // что бы переименовать Ratting, нужно в скобках указать as {Ratting as R}
+import {Onoff} from './components/OnOff/Onoff';
+import UncontrolledAccordion from './components/uncontrolledAccordion/UncontrolledAccordion';
+import {Rating, RatingValueType} from './components/rating/Rating';
+import {Accordion} from './components/accordion/Accordion';
 
-function App() {
+function App(props: any) {
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(1);
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
+    const changeRatingState = (value: RatingValueType) => {
+        setRatingValue(value)
+    };
+    const changeStateCollapsedAccordion = () => {
+        setAccordionCollapsed(!accordionCollapsed);
+    }
     return (
         <div className="conteiner">
-            <PageTitle title={"This is APP component"}/>
-            <Accordion titleValue={"Menu"} />
-            <Accordion titleValue={"Users"} />
-            <Rating />
-            <Rating />
-            <Rating />
-            <Rating />
-            <Rating />
+            <PageTitle title={"This is APP component"} />
+            <UncontrolledAccordion />
+            <Accordion title={"Users"} value={accordionCollapsed} collapsed={changeStateCollapsedAccordion} />
+            <Rating value={ratingValue} onClick={changeRatingState} />
+            <Onoff />
             <Onoff />
             <Onoff />
             <Onoff />
