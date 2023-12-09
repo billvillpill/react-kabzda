@@ -5,7 +5,7 @@ import UncontrolledAccordion from './components/uncontrolledAccordion/Uncontroll
 import {Rating, RatingValueType} from './components/rating/Rating';
 import {Accordion} from './components/accordion/Accordion';
 
-function App(props: any) {
+function App() {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(1);
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
     const changeRatingState = (value: RatingValueType) => {
