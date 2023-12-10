@@ -6,6 +6,7 @@ function UncontrolledAccordion() {
     }
 
     return <div>
+        <p>Не контролируемый <b>Accordion</b></p>
         <AccordionTitle title='Menu' onClik={onClickButton}/>
         { !collapsed && <AccordionBody />}
     </div>

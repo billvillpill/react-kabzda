@@ -10,6 +10,7 @@ type RatingPropsType = {
 export function Rating(props: RatingPropsType) {
     return (
         <div className='rating'>
+            <p>Контролируемый <b>Rating</b></p>
             <div>
                 <Star selected={ props.value > 0} onClick={props.onClick} value={1} />
                 <Star selected={ props.value > 1} onClick={props.onClick} value={2} />
