@@ -22,7 +22,9 @@ function App() {
         <div className="conteiner">
             <div>
                 <PageTitle title={"This is APP component"} />
-                <Accordion title={"Users"} collapsed={accordionCollapsed} onChange={changeStateCollapsedAccordion} />
+                <Accordion title={"Users"}
+                           collapsed={accordionCollapsed}
+                           onChange={changeStateCollapsedAccordion} />
                 <UncontrolledAccordion />
                 <Rating value={ratingValue} onClick={changeRatingState} />
                 <UncontrolledRating />
