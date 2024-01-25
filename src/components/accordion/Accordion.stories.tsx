@@ -1,25 +1,47 @@
-import type { Meta } from '@storybook/react';
-import { Accordion } from './Accordion';
-import {AccordionTitle} from './AccordionTitle';
-import {AccordionBody} from './AccordionBody';
-import React from 'react';
+import {action} from '@storybook/addon-actions'
+import {Accordion} from './Accordion';
+import React, {useState} from 'react';
 
-const meta: Meta<typeof Accordion> = {
+export default {
+    title: 'Accordion',
     component: Accordion,
 };
 
-export default meta;
-
-export const CollapsedAccordion = () => {
-    return <div>
-        <p>Контролируемый <b>Accordion</b></p>
-        <AccordionTitle title={'Users'} onChange={() =>{}}/>
-    </div>
+const callBack = action('accordion mode change event fired');
+const onClickCallBack = action('some item was clicked');
+export const MenuCollapsedMode = () => {
+    return <Accordion title={"MyMenu"}
+                      collapsed={true}
+                      onChange={callBack}
+                      items={[]}
+                      onClick={onClickCallBack}
+    />
 }
-export const OpenAccordion = () => {
-    return <div>
-        <p>Контролируемый <b>Accordion</b></p>
-        <AccordionTitle title={'Users'} onChange={() =>{}}/>
-        <AccordionBody />
-    </div>
+export const MenuUncollapsedMode = () => {
+    return <Accordion title={"Menu"}
+                      collapsed={false}
+                      onChange={callBack}
+                      items={[
+                          {title:'Vlad', value:1},
+                          {title:'Dimych', value:2},
+                          {title:'Valera', value:3},
+                          {title:'Igor', value:4}
+                      ]}
+                      onClick={onClickCallBack}
+    />
+}
+
+export const ModeChanging = () => {
+    const [value, setValue] = useState<boolean>(true);
+    return <Accordion title={"Users"}
+               collapsed={value}
+               onChange={()=> setValue(!value)}
+               items={[
+                   {title:'Vlad', value:1},
+                   {title:'Dimych', value:2},
+                   {title:'Valera', value:3},
+                   {title:'Igor', value:4}
+               ]}
+               onClick={(value)=> {alert(`user with ID ${value} should be happy`)}}
+    />
 }
